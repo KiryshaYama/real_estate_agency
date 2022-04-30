@@ -47,28 +47,32 @@ class Flat(models.Model):
         null=True,
         blank=True,
         db_index=True)
+
     new_building = models.BooleanField(
         'Новостройка',
         db_index=True)
+
+    liked_by = models.ManyToManyField(
+        User,
+        related_name='likes',
+        verbose_name='Кто лайкнул')
 
 class Complaint(models.Model):
     user = models.ForeignKey(
         User,
         related_name='complaints',
         verbose_name='Кто жаловался',
-        on_delete=models.CASCADE
-    )
+        on_delete=models.CASCADE)
+
     flat = models.ForeignKey(
         Flat,
         related_name='complaints',
         verbose_name='Квартира, на которую пожаловались',
-        on_delete=models.CASCADE
-    )
+        on_delete=models.CASCADE)
 
     text = models.TextField(
         'Текст жалобы',
-        max_length=2000
-    )
+        max_length=2000)
 
 
 def __str__(self):
