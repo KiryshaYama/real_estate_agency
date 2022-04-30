@@ -14,7 +14,10 @@ class FlatAdmin(admin.ModelAdmin):
         'price',
         'new_building',
         'construction_year',
-        'town')
+        'town',
+        'owners_phonenumber',
+        'owner_pure_phone'
+    )
     list_editable = ['new_building']
     raw_id_fields = ('liked_by',)
     list_filter = ['new_building', 'rooms_number', 'has_balcony']
