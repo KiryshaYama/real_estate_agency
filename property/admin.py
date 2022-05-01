@@ -4,6 +4,10 @@ from .models import Flat
 from .models import Complaint
 from .models import Owner
 
+class FlatInline(admin.TabularInline):
+    model = Owner.flats.through
+    raw_id_fields = ('owner',)
+
 class FlatAdmin(admin.ModelAdmin):
     search_fields = (
         'town',
@@ -18,6 +22,7 @@ class FlatAdmin(admin.ModelAdmin):
     list_editable = ['new_building']
     raw_id_fields = ('liked_by',)
     list_filter = ['new_building', 'rooms_number', 'has_balcony']
+    inlines = (FlatInline,)
 
 class ComplaintAdmin(admin.ModelAdmin):
     raw_id_fields = ('user', 'flat')
