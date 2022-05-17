@@ -57,6 +57,7 @@ class Flat(models.Model):
         verbose_name='Кто лайкнул',
         blank=True)
 
+
 class Complaint(models.Model):
     user = models.ForeignKey(
         User,
@@ -72,6 +73,7 @@ class Complaint(models.Model):
 
     text = models.TextField(
         'Текст жалобы')
+
 
 class Owner(models.Model):
     fullname = models.CharField(
