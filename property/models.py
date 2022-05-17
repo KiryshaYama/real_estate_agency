@@ -71,8 +71,7 @@ class Complaint(models.Model):
         on_delete=models.CASCADE)
 
     text = models.TextField(
-        'Текст жалобы',
-        max_length=2000)
+        'Текст жалобы')
 
 class Owner(models.Model):
     fullname = models.CharField(
