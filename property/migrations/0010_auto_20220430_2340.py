@@ -14,7 +14,6 @@ def resolve_phone_numbers(apps: Apps, schema_editor):
             if phonenumbers.is_valid_number_for_region(phonenumber, 'RU')
             else None
         )
-        flat.save()
 
 
 class Migration(migrations.Migration):
